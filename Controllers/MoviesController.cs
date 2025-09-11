@@ -20,7 +20,6 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
-        // GET: Movies
         public async Task<IActionResult> Index(string movieGenre, string searchString, int? selectedYear)
         {
             if (_context.Movie == null)
@@ -40,6 +39,8 @@ namespace MvcMovie.Controllers
 
             var movies = from m in _context.Movie
                         select m;
+
+            //filters for searching:
 
             // Title filter
             if (!string.IsNullOrEmpty(searchString))
